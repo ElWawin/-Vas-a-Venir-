@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vas a venir hoy?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Vas a venir hoy?</h1>
+  <button id="no" onclick="animateNo()">No</button>
+  <button id="si" onclick="animateSi()">Sí</button>
+
+  <script>
+    let clickCount = 0;
+
+    function animateNo() {
+      document.getElementById("no").style.transform = "scale(0.9)";
+      document.getElementById("no").style.transition = "transform 0.5s ease-in-out";
+
+      setTimeout(() => {
+        document.getElementById("no").style.transform = "translateX(50px)";
+        document.getElementById("no").style.transition = "transform 0.5s ease-in-out";
+      }, 500);
+
+      setTimeout(() => {
+        document.getElementById("no").style.transform = "translateX(-50px)";
+        document.getElementById("no").style.transition = "transform 0.5s ease-in-out";
+      }, 1000);
+
+      clickCount++;
+      animateSi();
+    }
+
+    function animateSi() {
+      if (clickCount === 1) {
+        document.getElementById("si").style.transform = "scale(1.2)";
+        document.getElementById("si").style.transition = "transform 0.5s ease-in-out";
+        document.getElementById("si").innerHTML = "En serio?";
+        document.getElementById("si").style.color = "#ff69b4";
+        document.getElementById("si").style.background = "linear-gradient(to bottom, #ff69b4, #66d9ef)";
+        document.getElementById("si").style.boxShadow = "0 0 20px rgba(255,105,180,0.5)";
+      } else if (clickCount === 2) {
+        document.getElementById("si").innerHTML = "A OK 👍";
+        document.getElementById("si").style.transform = "scale(1)";
+        document.getElementById("si").style.transition = "transform 0.5s ease-in-out";
+        document.getElementById("si").style.color = "#fff";
+        document
+p
